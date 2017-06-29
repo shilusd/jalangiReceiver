@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="jalangiReceiver">
+    <wb-module deploy-name="Jalangi">
         <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="java-output-path" value="/jalangiReceiver/WebRoot/WEB-INF/classes"/>
-        <property name="context-root" value="jalangiReceiver"/>
+        <property name="java-output-path" value="/Jalangi/WebRoot/WEB-INF/classes"/>
+        <property name="context-root" value="Jalangi"/>
     </wb-module>
 </project-modules>

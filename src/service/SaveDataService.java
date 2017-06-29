@@ -17,19 +17,24 @@ public class SaveDataService {
 		//	return false;
 		//} else {
 			//map.put(src, dst);
+
 		src = src.replaceAll("_orig_", "");
 		dst = dst.replaceAll("_orig_", "");
 		src = src.split(",")[1];
 		dst = dst.split(",")[1];
+		if (src.indexOf("\\core\\")<0||dst.indexOf("\\core\\")<0) {
+			return false;
+		}
+		//System.out.println("src:"+src);
+		//System.out.println("dst:"+dst);
 		if (src.length()>1) {
-			System.out.println(src);
-			src = src.substring(1,src.indexOf(':'));
+			src = src.substring(1,src.length()-1);
 		} else {
 			src = "0";
 		}
 		
 		if (dst.length()>1) {
-			dst = dst.substring(1,dst.indexOf(':'));
+			dst = dst.substring(1,dst.length()-1);
 		} else {
 			dst = "0";
 		}
@@ -38,7 +43,9 @@ public class SaveDataService {
 		src = src.replace('\\','.');
 		dst = dst.replace('\\','.');
 
-		if (set.contains(src+dst)||set.contains(dst+src)) {
+	
+		System.out.println(src+","+dst);
+		if (src.equals(dst)||set.contains(src+dst)||set.contains(dst+src)) {
 			return false;
 		} else {
 			set.add(src+dst);
@@ -57,9 +64,12 @@ public class SaveDataService {
 		FileWriter fw = new FileWriter(f);
 		BufferedWriter bw= new BufferedWriter(fw);
 		
+		System.out.println(list.size());
+		
 		while (!list.isEmpty()) {
 			String[] s = list.remove(0).split(",");
-			if (s[0].length()<2) {
+			System.out.println(s[0]+","+s[1]);
+			if (s[0].length()<2||s[1].length()<2) {
 				continue;
 			}
 			s[0] = s[0].substring(s[0].indexOf(proj));

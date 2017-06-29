@@ -1,0 +1,5 @@
+;(function($){
+    $.DG = $.dialogDrillGrid = {
+    	
+    }
+})(jQuery)
